@@ -13,7 +13,7 @@ FetchContent_MakeAvailable(googletest)
 
 #add_compile_options(--coverage)
 
-add_compile_options(-g)
+#add_compile_options(-g)
 enable_testing()
 add_executable(
     SoundexTest
@@ -22,6 +22,7 @@ add_executable(
 target_link_libraries(
     SoundexTest
     gtest_main
+
 )
 include(GoogleTest)
 gtest_discover_tests(SoundexTest)
