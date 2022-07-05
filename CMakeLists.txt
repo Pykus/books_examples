@@ -1,8 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
 project(tdd)
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 
-#add_compile_options(--coverage)
 
 include(FetchContent)
 FetchContent_Declare(
@@ -12,6 +11,9 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
+#add_compile_options(--coverage)
+
+add_compile_options(-g)
 enable_testing()
 add_executable(
     SoundexTest
