@@ -1,2 +1,4 @@
 -std=c++17
 -I/build/lib
+-I/home/przemyslaw/workspace/books_examples/build/_deps/googletest-src/googletest/include
+-I/home/przemyslaw/workspace/books_examples/build/_deps/googletest-src/googletest

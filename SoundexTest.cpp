@@ -1,11 +1,13 @@
 #include "Soundex.h"
-#include <gtest/gtest.h>
+#include "gtest/gtest.h"
 
 // using namespace testing;
 class SoundexEncoding : public testing::Test {
 public:
   Soundex soundex;
 };
+TEST(nowy, testowy) { ASSERT_EQ(22, 1); }
+
 TEST_F(SoundexEncoding, RetainSoleLetterOfOneLetterWord) {
   auto encoded = soundex.encode("A");
   ASSERT_EQ(encoded, "A000");
@@ -28,5 +30,16 @@ TEST_F(SoundexEncoding, ReplacesMultipleConsonantsWithDigits) {
   ASSERT_EQ(soundex.encode("Acdl"), "A234");
 }
 TEST_F(SoundexEncoding, LimitsLengthToFourCharacters) {
-  ASSERT_EQ(soundex.encode("Dcdlb").length(), 4);
+  ASSERT_EQ(int(soundex.encode("Dcdlb").length()), 4);
+}
+TEST_F(SoundexEncoding, IgnoresVowelLikeLetters) {
+  ASSERT_EQ(soundex.encode("Baeiouhycdl"), "B234");
+}
+TEST_F(SoundexEncoding, CombinesDuplicateEncodings) {
+  ASSERT_EQ(soundex.encode("Abfcgdt"), "A123");
+}
+
+int main(int argc, char **argv) {
+  testing::InitGoogleTest(&argc, argv);
+  return RUN_ALL_TESTS();
 }
