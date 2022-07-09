@@ -6,7 +6,7 @@ class SoundexEncoding : public testing::Test {
 public:
   Soundex soundex;
 };
-TEST(nowy, testowy) { ASSERT_EQ(22, 1); }
+TEST(nowy, DISABLED_testowy) { ASSERT_EQ(22, 1); }
 
 TEST_F(SoundexEncoding, RetainSoleLetterOfOneLetterWord) {
   auto encoded = soundex.encode("A");
@@ -36,6 +36,7 @@ TEST_F(SoundexEncoding, IgnoresVowelLikeLetters) {
   ASSERT_EQ(soundex.encode("Baeiouhycdl"), "B234");
 }
 TEST_F(SoundexEncoding, CombinesDuplicateEncodings) {
+  ASSERT_EQ(soundex.encodedDigit('b'), soundex.encodedDigit('f'));
   ASSERT_EQ(soundex.encode("Abfcgdt"), "A123");
 }
 

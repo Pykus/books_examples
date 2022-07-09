@@ -1,2 +1,7 @@
 build
 .vscode
+Debug
+.idea
+cmake-build-debug
+Debug
+.idea
